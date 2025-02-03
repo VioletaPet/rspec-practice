@@ -3,10 +3,11 @@
 # write bare minimum to make a test pass
 
 class Card
-  attr_reader :type
+  attr_reader :rank, :suit
 
-  def initialize(type)
-    @type = type
+  def initialize(rank, suit)
+    @rank = rank
+    @suit = suit
   end
 end
 
@@ -14,11 +15,15 @@ end
 # TEST CODE
 # don't describe HOW is something built but WHAT it is doing!
 
-RSpec.describe 'Card' do
-  it 'has a type' do
-    card = Card.new('Ace of Spades')
-    expect(card.type).to eq('Ace of Spades')
-    # expecting the card's type to be equal to 'Ace of Spades'
+RSpec.describe Card do
+  it 'has a rank' do
+    card = Card.new('Ace', 'Spades')
+    expect(card.rank).to eq('Ace')
+  end
+
+  it 'has a suit' do
+    card = Card.new('Ace', 'Spades')
+    expect(card.suit).to eq('Spades')
   end
 end
 
