@@ -16,13 +16,15 @@ end
 # don't describe HOW is something built but WHAT it is doing!
 
 RSpec.describe Card do
-  it 'has a rank' do
+  before do
     card = Card.new('Ace', 'Spades')
+  end
+
+  it 'has a rank' do
     expect(card.rank).to eq('Ace')
   end
 
   it 'has a suit' do
-    card = Card.new('Ace', 'Spades')
     expect(card.suit).to eq('Spades')
   end
 end
