@@ -1,8 +1,17 @@
-# describe method on the RSpec modul that takes an argument
-# describing what we are testing -> in this case the class Card's functionality
-# describe keyword creates an example group
-# example group = group of one or more examples/tests
+# METHOD CODE
+# fix first error, instead of all at once -> step by step
+# write bare minimum to make a test pass
 
+class Card
+  attr_reader :type
+
+  def initialize(type)
+    @type = type
+  end
+end
+
+
+# TEST CODE
 # don't describe HOW is something built but WHAT it is doing!
 
 RSpec.describe 'Card' do
@@ -13,14 +22,12 @@ RSpec.describe 'Card' do
   end
 end
 
-# expects the card's type to be 'Ace of Spades'
 
 
+
+# INFO
 # expect method with argument -> argument = what rspec will evaluate, test
 # equal method creates a matcher -> heart of the expectation, determines what is a success in the test
 # this case: argument for equal says what 'expect(card.type)' should be equal to 'Ace of Spades' at the end of the process
-
 # expect(card.type) -> returns an object
 # method .to is used on object
-
-
