@@ -3,7 +3,7 @@
 # write bare minimum to make a test pass
 
 class Card
-  attr_reader :rank, :suit
+  attr_accessor :rank, :suit
 
   def initialize(rank, suit)
     @rank = rank
@@ -16,12 +16,12 @@ end
 # don't describe HOW is something built but WHAT it is doing!
 
 RSpec.describe Card do
-  def card
-    Card.new('Ace', 'Spades')
-  end
+  let(:card) { Card.new('Ace', 'Spades') }
 
   it 'has a rank' do
     expect(card.rank).to eq('Ace')
+    card.rank = 'Queen'
+    expect(card.rank).to eq('Queen')
   end
 
   it 'has a suit' do
